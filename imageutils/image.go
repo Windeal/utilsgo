@@ -1,7 +1,7 @@
 package imageutils
 
-// GetImageTypeBySuffix : 根据图片前缀编码获取图片类型
-func GetImageTypeBySuffix(b *[]byte) MIME {
+// GetImageTypeByPrefix : 根据图片前缀编码获取图片类型
+func GetImageTypeByPrefix(b *[]byte) MIME {
 	// JPEG (jpg)，文件头：FFD8FF
 	if len(*b) > 2 && (*b)[0] == 0xFF && (*b)[1] == 0xD8 && (*b)[2] == 0xFF {
 		return ImageJPEG

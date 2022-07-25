@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestGetImageTypeBySuffix(t *testing.T) {
+func TestGetImageTypeByPrefix(t *testing.T) {
 	type args struct {
 		b        *[]byte
 		filename string
@@ -22,7 +22,7 @@ func TestGetImageTypeBySuffix(t *testing.T) {
 			args: args{
 				b: nil,
 			},
-			want: ImageJPEG,
+			want: ImageBMP,
 		},
 		{
 			name: "./testfile/gif.gif",
@@ -68,7 +68,7 @@ func TestGetImageTypeBySuffix(t *testing.T) {
 		}
 
 		t.Run(tt.name, func(t *testing.T) {
-			if got := GetImageTypeBySuffix(&b); got != tt.want {
+			if got := GetImageTypeByPrefix(&b); got != tt.want {
 				t.Errorf("GetImageTypeBySuffix() = %v, want %v", got, tt.want)
 			}
 		})
